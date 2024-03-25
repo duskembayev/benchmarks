@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Producer.Benchmark-20240325-203057</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3296/23H2/2023Update/SunValley3)
+AMD Ryzen 7 4800H with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 8.0.103
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>AccountCount</th><th>queryString</th><th>offset</th><th>count</th><th>sortBy</th><th>sortAscending</th><th>Mean </th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>Search</td><td>100</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>901.4 &mu;s</td><td>17.96 &mu;s</td><td>39.42 &mu;s</td>
+</tr><tr><td>Search</td><td>100</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>922.9 &mu;s</td><td>18.33 &mu;s</td><td>35.75 &mu;s</td>
+</tr><tr><td>Search</td><td>100</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>926.4 &mu;s</td><td>17.10 &mu;s</td><td>26.63 &mu;s</td>
+</tr><tr><td>Search</td><td>100</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>934.0 &mu;s</td><td>18.64 &mu;s</td><td>39.72 &mu;s</td>
+</tr><tr><td>Get</td><td>100</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>918.6 &mu;s</td><td>18.28 &mu;s</td><td>38.57 &mu;s</td>
+</tr><tr><td>Update</td><td>100</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>1,979.5 &mu;s</td><td>39.54 &mu;s</td><td>85.96 &mu;s</td>
+</tr><tr><td>Search</td><td>1000</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>912.9 &mu;s</td><td>18.12 &mu;s</td><td>35.76 &mu;s</td>
+</tr><tr><td>Search</td><td>1000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>1,503.9 &mu;s</td><td>25.36 &mu;s</td><td>22.48 &mu;s</td>
+</tr><tr><td>Search</td><td>1000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>1,505.8 &mu;s</td><td>15.24 &mu;s</td><td>13.51 &mu;s</td>
+</tr><tr><td>Search</td><td>1000</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>957.2 &mu;s</td><td>19.11 &mu;s</td><td>51.66 &mu;s</td>
+</tr><tr><td>Get</td><td>1000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>899.6 &mu;s</td><td>17.79 &mu;s</td><td>33.84 &mu;s</td>
+</tr><tr><td>Update</td><td>1000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>2,012.3 &mu;s</td><td>39.75 &mu;s</td><td>63.04 &mu;s</td>
+</tr><tr><td>Search</td><td>10000</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>876.4 &mu;s</td><td>17.02 &mu;s</td><td>23.30 &mu;s</td>
+</tr><tr><td>Search</td><td>10000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>2,096.1 &mu;s</td><td>41.09 &mu;s</td><td>38.44 &mu;s</td>
+</tr><tr><td>Search</td><td>10000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>2,171.0 &mu;s</td><td>42.70 &mu;s</td><td>41.94 &mu;s</td>
+</tr><tr><td>Search</td><td>10000</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>1,879.7 &mu;s</td><td>36.71 &mu;s</td><td>57.15 &mu;s</td>
+</tr><tr><td>Get</td><td>10000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>931.2 &mu;s</td><td>18.27 &mu;s</td><td>33.86 &mu;s</td>
+</tr><tr><td>Update</td><td>10000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>1,954.2 &mu;s</td><td>38.83 &mu;s</td><td>89.21 &mu;s</td>
+</tr><tr><td>Search</td><td>100000</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>889.0 &mu;s</td><td>16.74 &mu;s</td><td>16.45 &mu;s</td>
+</tr><tr><td>Search</td><td>100000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>6,182.4 &mu;s</td><td>56.42 &mu;s</td><td>52.77 &mu;s</td>
+</tr><tr><td>Search</td><td>100000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>6,280.7 &mu;s</td><td>100.08 &mu;s</td><td>93.62 &mu;s</td>
+</tr><tr><td>Search</td><td>100000</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>4,787.6 &mu;s</td><td>63.18 &mu;s</td><td>59.09 &mu;s</td>
+</tr><tr><td>Get</td><td>100000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>910.2 &mu;s</td><td>17.51 &mu;s</td><td>24.55 &mu;s</td>
+</tr><tr><td>Update</td><td>100000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>1,957.6 &mu;s</td><td>24.90 &mu;s</td><td>23.30 &mu;s</td>
+</tr><tr><td>Search</td><td>500000</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>888.5 &mu;s</td><td>13.80 &mu;s</td><td>12.23 &mu;s</td>
+</tr><tr><td>Search</td><td>500000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>24,878.4 &mu;s</td><td>128.65 &mu;s</td><td>120.34 &mu;s</td>
+</tr><tr><td>Search</td><td>500000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>25,165.2 &mu;s</td><td>117.99 &mu;s</td><td>104.59 &mu;s</td>
+</tr><tr><td>Search</td><td>500000</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>14,278.8 &mu;s</td><td>56.23 &mu;s</td><td>52.60 &mu;s</td>
+</tr><tr><td>Get</td><td>500000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>900.6 &mu;s</td><td>17.61 &mu;s</td><td>33.07 &mu;s</td>
+</tr><tr><td>Update</td><td>500000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>1,995.1 &mu;s</td><td>39.35 &mu;s</td><td>74.87 &mu;s</td>
+</tr><tr><td>Search</td><td>1000000</td><td></td><td>0</td><td>1000</td><td>balance</td><td>False</td><td>904.8 &mu;s</td><td>17.33 &mu;s</td><td>36.56 &mu;s</td>
+</tr><tr><td>Search</td><td>1000000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>?</td><td>43,098.3 &mu;s</td><td>316.10 &mu;s</td><td>295.68 &mu;s</td>
+</tr><tr><td>Search</td><td>1000000</td><td>@balance:[10 100]</td><td>50</td><td>50</td><td>balance</td><td>False</td><td>43,092.8 &mu;s</td><td>264.01 &mu;s</td><td>246.95 &mu;s</td>
+</tr><tr><td>Search</td><td>1000000</td><td>@department:Toys</td><td>50</td><td>50</td><td>name</td><td>True</td><td>26,803.6 &mu;s</td><td>203.25 &mu;s</td><td>180.17 &mu;s</td>
+</tr><tr><td>Get</td><td>1000000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>919.0 &mu;s</td><td>17.38 &mu;s</td><td>17.07 &mu;s</td>
+</tr><tr><td>Update</td><td>1000000</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>2,074.6 &mu;s</td><td>41.00 &mu;s</td><td>93.37 &mu;s</td>
+</tr></tbody></table>
+</body>
+</html>
